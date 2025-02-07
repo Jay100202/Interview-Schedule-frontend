@@ -3,12 +3,12 @@ import { Navigate } from "react-router-dom";
 
 import Login from "../pages/Authentication/Login";
 
-import DashBoard from "../pages/Setup/DashBoard";
+import InterviewScheduler from "../pages/Setup/InterviewScheduler";
 import Register from "../pages/Authentication/Register";
 import ProfileDropdown from "../Components/Common/ProfileDropdown";
 const authProtectedRoutes = [
   // { path: "/dashboard", component: <DashboardCrm /> },
-  { path: "/Dashboard", component: <DashBoard /> },
+  { path: "/Dashboard", component: <InterviewScheduler /> },
   {path: "/profile", component: <ProfileDropdown />},
  
 ];
