@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import {
@@ -45,11 +45,7 @@ const InterviewScheduler = () => {
     }
   });
 
-  useEffect(() => {
-    fetchTimeslots();
-  }, []);
-
-  const fetchTimeslots = async () => {
+  const fetchTimeslots = useCallback(async () => {
     try {
       const response = await api.get('/api/timeslots');
       const formattedEvents = response.data.map(event => ({
@@ -63,7 +59,11 @@ const InterviewScheduler = () => {
     } catch (err) {
       setError('Failed to fetch timeslots');
     }
-  };
+  }, [api]);
+
+  useEffect(() => {
+    fetchTimeslots();
+  }, [fetchTimeslots]);
 
   const handleSelectSlot = ({ start, end }) => {
     setFormData({
