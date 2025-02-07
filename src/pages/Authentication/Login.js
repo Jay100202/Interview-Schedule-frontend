@@ -103,7 +103,7 @@ const Login = (props) => {
   const validClassPassword =
     errPassword && isSubmit ? "form-control is-invalid" : "form-control pe-5";
 
-  document.title = " SignIn | Clay World School ";
+  document.title = " SignIn | Interview Schedule ";
   return (
     <React.Fragment>
       <ToastContainer />
